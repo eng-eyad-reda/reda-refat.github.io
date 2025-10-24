@@ -1,0 +1,111 @@
+/* Fancy Modern Styles - "خرافي" (استخدم هذا الملف كاملًا) */
+:root{
+  --bg-1: #0f172a;
+  --bg-2: #071133;
+  --accent-1: #4aa3ff;
+  --accent-2: #7c3aed;
+  --muted: #94a3b8;
+  --card-bg: rgba(255,255,255,0.03);
+  --success: #22c55e;
+  --danger: #ef4444;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: 'Tajawal', system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(124,58,237,0.12), transparent),
+              radial-gradient(1000px 500px at 90% 90%, rgba(74,163,255,0.08), transparent),
+              linear-gradient(180deg,var(--bg-1),var(--bg-2));
+  color:#e6eef8;
+  direction:rtl;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  min-height:100%;
+  padding-bottom:40px;
+}
+
+/* header / banner */
+.banner{
+  width:100%;
+  padding:18px 20px;
+  backdrop-filter: blur(6px) saturate(120%);
+  background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+  position:sticky;
+  top:0;
+  z-index:40;
+}
+.banner-inner{
+  max-width:1100px;
+  margin:0 auto;
+  display:flex;
+  gap:12px;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+}
+.brand{display:flex;gap:12px;align-items:center;font-weight:800;font-size:1.15rem}
+.brand .logo{width:46px;height:46px;border-radius:10px;background: linear-gradient(135deg,var(--accent-1),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.1rem}
+.tabs{display:flex;gap:8px}
+.tab{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.04);padding:7px 12px;border-radius:10px;cursor:pointer;font-weight:700;transition: all .25s ease}
+.tab.active{color:white;background: linear-gradient(90deg,var(--accent-1),var(--accent-2));box-shadow: 0 8px 30px rgba(124,58,237,0.12)}
+
+/* layout */
+.main{max-width:1100px;margin:28px auto;padding: 0 18px;display:grid;grid-template-columns: 1fr 420px;gap:22px}
+@media (max-width:980px){ .main{ grid-template-columns: 1fr; padding: 0 14px } }
+.card{background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:16px;padding:18px;box-shadow: 0 10px 30px rgba(6,10,20,0.6);border:1px solid rgba(255,255,255,0.03);margin-bottom:12px}
+
+/* typography */
+h2{ margin:0 0 12px 0; color:#fff; font-size:1.35rem; font-weight:800 }
+h3{ margin:0 0 8px 0; color:var(--muted) }
+
+/* form elements */
+label{ display:block; margin:10px 0 6px 0; color: #dbe7ff; font-weight:700 }
+input[type="text"], input[type="tel"], input[type="date"], input[type="time"], input[type="email"], input[type="password"]{
+  width:100%; padding:12px 14px; margin-bottom:6px; border-radius:12px; background: rgba(10,14,25,0.45);
+  border: 1px solid rgba(255,255,255,0.04); color: #e6eef8; outline:none; transition: box-shadow .18s ease, transform .12s ease; font-size:1rem;
+}
+input::placeholder{ color: rgba(230,238,248,0.45) }
+input:focus{ box-shadow: 0 6px 18px rgba(74,163,255,0.12); transform: translateY(-2px) }
+
+.row{ display:flex; gap:10px; margin-top:6px }
+.row > div{ flex:1 }
+@media (max-width:640px){ .row{ flex-direction:column } }
+
+/* buttons */
+.btn-primary{ width:100%; margin-top:14px; padding:12px 14px; font-weight:900; border-radius:14px; border:none; color:white; background: linear-gradient(90deg,var(--accent-1),var(--accent-2)); box-shadow: 0 12px 30px rgba(124,58,237,0.16); cursor:pointer }
+.btn-primary:hover{ transform:translateY(-4px) }
+
+.small-btn{ padding:9px 12px;border-radius:10px;border:none;font-weight:800;cursor:pointer;transition: transform .12s ease, box-shadow .12s ease }
+.small-btn.send{ background: linear-gradient(90deg,#06b6d4,#0ea5a4); color:white }
+.small-btn.offer{ background: linear-gradient(90deg,#fde68a,#f59e0b); color:#1f2937 }
+.small-btn.danger{ background: linear-gradient(90deg,#fecaca,#f87171); color:#771717 }
+.small-btn.delete{ background: transparent; border:1px solid rgba(255,255,255,0.04); color:var(--muted) }
+
+/* lists */
+.list{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px }
+.list li{ display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px; border-radius:12px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.03) }
+.booking-left{ flex:1; min-width:180px }
+.booking-left strong{ color:#fff; display:block; font-size:1.03rem }
+.booking-meta{ color:var(--muted); margin-top:6px; font-size:0.95rem }
+.price{ margin-top:8px; color:var(--accent-1); font-weight:800 }
+
+/* misc */
+.muted{ color: rgba(230,238,248,0.64); font-size:0.95rem }
+.hidden{ display:none !important }
+.panel{ margin:10px 0 }
+.driver-header{ display:flex; align-items:center; justify-content:space-between; gap:12px }
+.footer{ text-align:center; color:var(--muted); margin-top:26px; font-size:0.92rem }
+
+/* responsive tweaks */
+@media (max-width:720px){
+  .brand{ font-size:1rem }
+  .main{ gap:14px }
+}
+
+/* floaty effect */
+@keyframes floaty { 0% { transform: translateY(0px) } 50% { transform: translateY(-6px) } 100% { transform: translateY(0px) } }
+.card:hover{ animation: floaty 6s ease-in-out infinite }

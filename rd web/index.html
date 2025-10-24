@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>رضا رفعت - حجز الرحلات (بخرائط)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="banner">
+    <div class="banner-inner">
+      <div class="brand">
+        <div class="logo">🚖</div>
+        <div>
+          <div style="font-weight:800">رضا رفعت لخدمات النقل</div>
+          <div style="font-size:0.85rem;color:rgba(255,255,255,0.85)">01004243972</div>
+        </div>
+      </div>
+
+      <div class="tabs">
+        <button id="tab-book" class="tab active">حجز (المستخدم)</button>
+        <button id="tab-driver" class="tab">لوحة السائق</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Booking view -->
+    <section id="view-book" class="view active">
+      <div class="card">
+        <h2>احجز رحلتك الآن</h2>
+        <form id="bookingForm" class="form">
+          <label>الاسم</label>
+          <input type="text" id="b_name" placeholder="اكتب اسمك" required />
+
+          <label>رقم الهاتف (للتواصل)</label>
+          <input type="tel" id="b_phone" placeholder="01012345678" />
+
+          <label>من</label>
+          <input type="text" id="b_from" placeholder="مكان الانطلاق (ابحث او حدده على الخريطة)" required />
+
+          <label>إلى</label>
+          <input type="text" id="b_to" placeholder="الوجهة المطلوبة (ابحث او حدد على الخريطة)" required />
+
+          <div class="row">
+            <div>
+              <label>التاريخ</label>
+              <input type="date" id="b_date" required />
+            </div>
+            <div>
+              <label>الوقت</label>
+              <input type="time" id="b_time" required />
+            </div>
+          </div>
+
+          <div style="margin-top:10px">
+            <label>الخريطة (اسحب العلامة أو اضغط لتحديد الموقع)</label>
+            <div id="map" class="map"></div>
+            <div class="muted" style="margin-top:8px">انقر على الخريطة لتعيين موقع الوجهة. يمكنك أيضاً البحث في خانة \"إلى\" وسيتم تحريك العلامة تلقائيًا.</div>
+          </div>
+
+          <button type="submit" class="btn-primary">إرسال طلب الحجز</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h3>حجوزاتي (تظهر فقط لحجوزات باسمك)</h3>
+        <ul id="customerBookings" class="list"></ul>
+      </div>
+    </section>
+
+    <!-- Driver view -->
+    <section id="view-driver" class="view">
+      <div class="card">
+        <div class="driver-header">
+          <h2>لوحة السائق</h2>
+          <div>
+            <button id="btnOpenLogin" class="tab">تسجيل دخول</button>
+            <button id="btnLogout" class="tab hidden">تسجيل خروج</button>
+          </div>
+        </div>
+
+        <div id="loginPanel" class="panel">
+          <p class="muted">أدخل كلمة مرور السائق للوصول للوحة</p>
+          <input id="driverPass" type="password" placeholder="كلمة المرور" />
+          <div style="margin-top:10px">
+            <button id="loginBtn" class="small-btn send">دخول</button>
+          </div>
+        </div>
+
+        <div id="driverDashboard" class="hidden">
+          <p class="muted">هنا تظهر كل الحجوزات مع روابط الموقع. ضع سعر لكل طلب ثم اضغط "أرسل السعر".</p>
+
+          <div style="margin:12px 0; text-align:right">
+            <button id="btnClearAll" class="small-btn delete">افرغ جميع الحجوزات</button>
+          </div>
+
+          <ul id="driverList" class="list"></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">نسخة تجريبية — محفوظة محليًا على جهازك</footer>
+
+  <!-- Google Maps API (ضع مفتاحك هنا) -->
+  <!-- استبدِل YOUR_GOOGLE_MAPS_API_KEY بالمفتاح اللي هاتطلعه من Google Cloud -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places&callback=initMap" async defer></script>
+
+  <script src="script.js"></script>
+</body>
+</html>
